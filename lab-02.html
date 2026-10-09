@@ -371,8 +371,6 @@ data1 &lt;- read_csv(&quot;data/mismanaged-plastic-waste-per-capita.csv&quot;)
 
 # Member 4 (pair 2) write code to load File 2 data here:
 data2 &lt;- read_csv2(&quot;data/per-capita-ocean-plastic-waste.txt&quot;)
-plastic_data_all &lt;- data1 %&gt;%
-  left_join(data2, by = &quot;code&quot;)
 
 
 
@@ -387,6 +385,8 @@ plastic_data_all &lt;- data1
 
 
 # Member 4 (pair 2) write code to join your data to &#39;plastic_data_all&#39;:
+plastic_data_all &lt;- data1 %&gt;%
+  left_join(data2, by = &quot;code&quot;)
 
 
 
@@ -399,19 +399,20 @@ plastic_data_all &lt;- data1
 # Member 3 (pair 2) write code to join your data to &#39;plastic_data_all&#39;:</code></pre>
 <pre class="r"><code># Member 2 (pair 1) adds code here to view the first 10 rows of &#39;plastic_data_all&#39;
 plastic_data_all %&gt;% head(n = 10)</code></pre>
-<pre><code>## # A tibble: 10 × 3
-##    name                code  mismanaged_plastic
-##    &lt;chr&gt;               &lt;chr&gt;              &lt;dbl&gt;
-##  1 Albania             ALB               24.2  
-##  2 Algeria             DZA               17.8  
-##  3 Angola              AGO                7.45 
-##  4 Antigua and Barbuda ATG                6.46 
-##  5 Argentina           ARG               10.4  
-##  6 Australia           AUS                0.209
-##  7 Bahamas             BHS                5.69 
-##  8 Bahrain             BHR                0.636
-##  9 Bangladesh          BGD                6.27 
-## 10 Barbados            BRB                3.04</code></pre>
+<pre><code>## # A tibble: 10 × 5
+##    name.x              code  mismanaged_plastic name.y    mismanaged_plastic_o…¹
+##    &lt;chr&gt;               &lt;chr&gt;              &lt;dbl&gt; &lt;chr&gt;                      &lt;dbl&gt;
+##  1 Albania             ALB               24.2   Albania                  0.543  
+##  2 Algeria             DZA               17.8   Algeria                  0.134  
+##  3 Angola              AGO                7.45  Angola                   0.0270 
+##  4 Antigua and Barbuda ATG                6.46  Antigua …                0.0206 
+##  5 Argentina           ARG               10.4   Argentina                0.0924 
+##  6 Australia           AUS                0.209 Australia                0.00127
+##  7 Bahamas             BHS                5.69  Bahamas                  0.0514 
+##  8 Bahrain             BHR                0.636 Bahrain                  0      
+##  9 Bangladesh          BGD                6.27  Banglade…                0.151  
+## 10 Barbados            BRB                3.04  Barbados                 0.157  
+## # ℹ abbreviated name: ¹​mismanaged_plastic_ocean</code></pre>
 </div>
 <div id="exercises" class="section level2">
 <h2>Exercises</h2>
